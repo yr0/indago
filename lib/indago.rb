@@ -11,7 +11,10 @@ module Indago
 
   LOGGER_LEVEL = Logger::INFO
   WITHIN_PROJECT_DIR = ->(target) { File.expand_path(File.join(File.dirname(__FILE__), '..', target)) }
+  # Path where JSON files for search are stored. This directory should be populated by user of the program
   DATA_DIR_PATH = WITHIN_PROJECT_DIR.call('data').freeze
+  # Path where indexes will be stored. User should never change anything within this directory except for the case
+  # she/he wants a clean index, in which case clearing the directory and running indago index should do the trick.
   INDEXES_DIR_PATH = WITHIN_PROJECT_DIR.call('indexes').freeze
   # Maximum size of a JSON array collection in bytes. We need to stop somewhere before we cause memory overflow
   # Per example 100_000 items would take about 1 GB (10^9 bytes) of in-memory space.
@@ -19,7 +22,9 @@ module Indago
   # So in order to calculate appropriate value for this constant, check if the amount of memory you are willing to
   # sacrifice in bytes is bigger than (MAX_INDEXING_ARRAY_SIZE * 3)
   MAX_INDEXING_ARRAY_SIZE = 10**9
+  # Name of field that is considered primary (unique) for each entity within all collections.
   PRIMARY_FIELD_NAME = '_id'.freeze
+  # Extension of index files. Used mostly for cosmetical purposes
   INDEX_FILE_EXTENSION = '.json'.freeze
   # Max width of table with found entity, in terminal units
   OUTPUT_TABLE_MAX_WIDTH = 100
@@ -47,7 +52,11 @@ module Indago
       { collection: 'users', kind: 'child', key: 'requester_id', as: 'requester_name' }
     ]
   }.freeze
-  BASIC_DATA_FIELDS = { users: 'name', organizations: 'name', tickets: 'subject' }.freeze
+  # Basic data field is a field that contains essential value about entity, like its name or short description. The
+  # value of this field will be stored and displayed as related information for entities.
+  DEFAULT_BASIC_DATA_FIELD = 'name'.freeze
+  CUSTOM_BASIC_DATA_FIELDS = { tickets: 'subject' }.freeze
+  BASIC_DATA_FIELDS = Hash.new { |_, key| CUSTOM_BASIC_DATA_FIELDS[key] || DEFAULT_BASIC_DATA_FIELD }
   #
   ##
 
