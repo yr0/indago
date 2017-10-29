@@ -1,0 +1,33 @@
+[
+  {
+    "_id": 71,
+    "url": "http://initech.zendesk.com/api/v2/users/71.json",
+    "external_id": "c972bb41-94aa-4f20-bc93-e63dbfe8d9ca",
+    "name": "Prince Hinton",
+    "alias": "Miss Dana",
+    "created_at": "2016-04-18T11:05:43 -10:00",
+    "active": true,
+    "verified": false,
+    "shared": false,
+    "locale": "zh-CN",
+    "timezone": "Samoa",
+    "last_login_at": "2013-05-01T01:18:48 -10:00",
+    "email": "danahinton@flotonic.com",
+    "phone": "9064-433-892",
+    "signature": "Don't Worry Be Happy!",
+    "organization_id": 121,
+    "tags": [
+      "Davenport",
+      "Cherokee",
+      "Summertown",
+      "Clinton"
+    ],
+    "suspended": false,
+    "role": "agent",
+    "organization_name": "Hotcâkes",
+    "submitted_ticket_1": "A Catastrophe in Micronesia",
+    "submitted_ticket_2": "A Drama in Wallis and Futuna Islands",
+    "submitted_ticket_3": "A Drama in Australia",
+    "assigned_ticket_1": "A Catastrophe in Sierra Leone"
+  }
+]

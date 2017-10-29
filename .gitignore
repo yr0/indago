@@ -1,0 +1,10 @@
+# Ignore bundler config.
+/.bundle
+
+# Ignore indexes and data as it is usage-specific
+/indexes/*
+/data/*
+!/indexes/.keep
+!/data/.keep
+
+.idea/

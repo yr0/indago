@@ -1,0 +1,24 @@
+AllCops:
+  TargetRubyVersion: 2.4
+  DisplayStyleGuide: true
+  DisplayCopNames: true
+  Include:
+    - '**/Gemfile'
+  Exclude:
+    - '**/bin/**'
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  Max: 10
+
+# For specs
+Metrics/BlockLength:
+  Max: 100
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false

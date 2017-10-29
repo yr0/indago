@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+# Clean exit if user desides to quit
+Signal.trap('INT') { exit 1 }
+
+require 'bundler/setup'
+require 'thor'
+require_relative '../lib/indago'
+Indago::CLI.start(ARGV)
